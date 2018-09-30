@@ -1,0 +1,88 @@
+%导言区
+\documentclass{article}%book, report ,letter
+\title{\heiti 我的第一篇论文}
+\author{\kaishu 马胜超}
+\date{\today}
+\newcommand\degree{^\circ}
+\usepackage{ctex}%可以使用中文的宏包
+\usepackage{amsmath}
+\usepackage{amssymb}
+%导言区：\usepackage{graphicx}
+%语法:\includegraphics[<选项>]{<文件名>}
+%格式:EPS,PDF,PNG,JPEG,BMP
+\usepackage{graphicx}%\emph{}
+\graphicspath{{figures/},{pics/}}%图片在当前目录下的figures目录
+%正文区
+%公式的环境基本分为$<formula>$,\(formula)\,\begin{math}formula\end{math}
+%latex通过^实现上标,通过_实现下标通过{}实现分组
+%\frac{分子}{分母}
+\begin{document}
+
+    %\maketitle
+    \maketitle
+    \tableofcontents%生成目录
+    %多行公式的排版需要导入两个包
+    %\usepackage{amsmath}
+    %\usepackage{amssymb}
+    \begin{gather}%自带编号，能够换行
+    %\times表示乘积符号
+    a+b=b+a\\
+    ab=ba \notag%使用\notag可以阻止编号
+    \end{gather}
+    %浮动体，可以实现灵活分页，给图表添加标题，并实现交叉引用
+    %\begin{figrue or table}[允许位置h(here)t(top)b(bottom)p(page独立一页)]  <任意内容> %\end{figure or table}
+    %\caption \label \ref
+    这是我的第一张图片见figure \ref {fig-pic1}.
+    \begin{figure}[htbp]
+    \centering
+    %\includegraphics[scale=0.8]{pic1}
+    \includegraphics[height=16cm,width=10cm]{pic1}%对图片大小进行调整
+     \caption{this is my figure}\label{fig-pic1}
+    %\includegraphics[]{pic1}
+
+    %\\表示换行，&表示不同的列，l,c,r分别表示右中左对齐
+    %p{<宽>}-本列宽度固定，能够自动换行
+    \end{figure}
+    \begin{table}
+    \centering
+    \caption{考试成绩单}
+    \begin{tabular}{|l||c|c|c|r|}
+    \hline
+    姓名&语文&数学&外语&备注\\
+    \hline \hline
+    张三&87&0.434&98.0&优秀\\
+    \hline
+    李四&75&64&53&补考另行通知\\
+    \hline
+    王二& 80&234&234&23\\
+    \hline
+    \end{tabular}
+    \end{table}
+    \section{引言}
+    %//表示换行，/par表示换段落
+    %在latex中多个空格视为一个空格，
+    %使用\quad产生1em的空白，使用\qquad产生2em的空白
+    随着近几年来深度学习在计算机视觉和自然语言处理的巨大成功，基于深度学习的推荐系统也得到了长足的发展,传统的推荐算法通过矩阵分解技术来获取用户向量和项目向量，通过用户向量和项目向量的内积来获取推荐结果，碍于数据的稀疏性问题和矩阵分解模型表示能力的限制，并不能产生比较好的结果，而深度学习具有强大的表示能力，\\并且通过嵌入层的方式能缓解部分数据稀疏性的问题，本文采用二分类的模型，构建基于隐式反馈的推荐系统，首先通过四个嵌入层分别对用户，项目，用户动作和项目标签进行编码，然后在用户向量和项目向量的抽象表示上使用了三个注意力机制进行建模，最后通过多个空间变换，得到用户项目交互向量，通过多层神经网络和最后一层的sigmoid层得到预测的概率，我们对来自不同场景的两个真实世界数据集进行了对比实验。通过和其他推荐系统的对比，我们的模型表现出了良好的性能
+    \section{实验方法}
+    随着近几年来深度学习在计算机视觉和自然语言处理的巨大成功，基于深度学习的推荐系统也得到了长足的发展,传统的推荐算法通过矩阵分解技术来获取用户向量和项目向量，通过用户向量和项目向量的内积来获取推荐结果，碍于数据的稀疏性问题和矩阵分解模型表示能力的限制，并不能产生比较好的结果，而深度学习具有强大的表示能力，\par 并且通过嵌入层的方式能缓解部分数据稀疏性的问题，本文采用二分类的模型，构建基于隐式反馈的推荐系统，首先通过四个嵌入层分别对用户，项目，用户动作和项目标签进行编码，然后在用户向量和项目向量的抽象表示上使用了三个注意力机制进行建模，最后通过多个空间变换，得到用户项目交互向量，通过多层神经网络和最后一层的sigmoid层得到预测的概率，我们对来自不同场景的两个真实世界数据集进行了对比实验。通过和其他推荐系统的对比，我们的模型表现出了良好的性能
+    \section{实验结果}
+    \subsection{数据}
+    \subsection{图表}
+    随着近几年来深度学习在计算机视觉和自然语言处理的巨大成功，基于深度学习的推荐系统也得到了长足的发展,传统的推荐算法通过矩阵分解技术来获取用户向量和项目向量，通过用户向量和项目向量的内积来获取推荐结果，碍于数据的稀疏性问题和矩阵分解模型表示能力的限制，并不能产生比较好的结果，而深度学习具有强大的表示能力，并且通过嵌入层的方式能缓解部分数据稀疏性的问题，本文采用二分类的模型，构建基于隐式反馈的推荐系统，首先通过四个嵌入层分别对用户，项目，用户动作和项目标签进行编码，然后在用户向量和项目向量的抽象表示上使用了三个注意力机制进行建模，最后通过多个空间变换，得到用户项目交互向量，通过多层神经网络和最后一层的sigmoid层得到预测的概率，我们对来自不同场景的两个真实世界数据集进行了对比实验。通过和其他推荐系统的对比，我们的模型表现出了良好的性能
+    \subsubsection{实验条件}
+    \subsubsection{实验过程}
+    \subsection{结果分析}
+    \section{结论}
+    \section{致谢}
+    可以用符号语言表示为：设直角三角形$ABC$，其中$\angle C=90\degree$,则有：
+    AMD发松岛枫
+        发松岛枫啊多少发送到发送到速度发松岛枫
+    多少分撒旦法
+    %带编号的公式如下：使用\begin{equation}和\end{equation}
+    \begin{equation}
+    a^2=b^2+c^2
+    \end{equation}
+    there is a formula is $f(x)=x^2+3x$
+    here is another formula $$f(x)=x^3+x^5$$
+\end{document}
+
